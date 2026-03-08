@@ -73,21 +73,31 @@ export default function CaseStudies() {
       className="py-24 md:py-32 bg-[#141414] border-y border-white/5"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-20 md:text-center max-w-3xl mx-auto">
+        <motion.div 
+          className="mb-20 md:text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-[#ccff00] font-semibold tracking-wider uppercase text-sm mb-4 block">
             Case Studies
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
             Selected work and outcomes.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="space-y-24 md:space-y-32">
           {cases.map((study, index) => {
             const isEven = index % 2 === 0;
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
                 className={`flex flex-col gap-12 lg:gap-20 items-center ${
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                 }`}
@@ -126,7 +136,7 @@ export default function CaseStudies() {
                     {study.copy}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,5 +1,6 @@
 import { Download } from "lucide-react";
 import MagneticButton from "./MagneticButton";
+import { motion } from "motion/react";
 
 export default function ResumeCTA() {
   return (
@@ -9,7 +10,13 @@ export default function ResumeCTA() {
     >
       <div className="absolute inset-0 bg-[#ccff00]/5 blur-[150px] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
+      <motion.div 
+        className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="text-[#ccff00] font-semibold tracking-wider uppercase text-sm mb-6 block">
           Resume
         </span>
@@ -30,7 +37,7 @@ export default function ResumeCTA() {
             Download Resume
           </a>
         </MagneticButton>
-      </div>
+      </motion.div>
     </section>
   );
 }
